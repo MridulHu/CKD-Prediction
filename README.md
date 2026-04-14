@@ -1,73 +1,105 @@
-# Welcome to your Lovable project
+📌 Abstract
 
-## Project info
+This project presents the frontend implementation of a Chronic Kidney Disease (CKD) Prediction System, designed to assist in early detection through a machine learning-based diagnostic pipeline. The frontend serves as the user interaction layer, enabling data input, visualization of predictions, and communication with the backend inference engine.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+The system emphasizes usability, responsiveness, and clarity, ensuring that medical inputs can be efficiently processed and interpreted.
 
-## How can I edit this code?
+🎯 Objectives
+To design a responsive and accessible user interface for CKD prediction
+To enable structured medical data input through validated forms
+To integrate seamlessly with a FastAPI-based backend
+To present prediction results in a clear and interpretable format
+To ensure performance optimization using modern frontend tooling
+🏗️ System Architecture
 
-There are several ways of editing your application.
+The frontend represents the Presentation Layer in a three-tier architecture:
 
-**Use Lovable**
+Presentation Layer: React + Vite + Tailwind CSS (this project)
+Application Layer: FastAPI backend (API handling and validation)
+Model Layer: Machine Learning models for CKD prediction
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+This separation ensures modularity, scalability, and maintainability.
 
-Changes made via Lovable will be committed automatically to this repo.
+⚙️ Technology Stack
+Frontend Framework: React (with Vite for optimized builds)
+Styling: Tailwind CSS
+Programming Language: TypeScript
+State Management / Data Fetching: TanStack Query (React Query v5)
+UI Components: ShadCN UI
+API Communication: Axios / Fetch API
+✨ Functional Features
+Structured input form for clinical parameters (e.g., blood pressure, specific gravity)
+Real-time interaction with backend prediction API
+Display of classification results (CKD / Non-CKD)
+Responsive design for cross-device compatibility
+User feedback mechanisms (notifications and validation)
+Modular and reusable component architecture
+📂 Project Structure
+src/
+│
+├── components/        # Reusable UI components
+├── pages/            # Application views
+├── hooks/            # Custom React hooks
+├── services/         # API interaction layer
+├── types/            # Type definitions
+├── utils/            # Helper utilities
+│
+├── App.tsx
+└── main.tsx
+🔗 Backend Interaction
 
-**Use your preferred IDE**
+The frontend communicates with the backend through RESTful APIs.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Primary Endpoint:
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+POST /predict
 
-Follow these steps:
+Input Format (Example):
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+{
+  "age": 45,
+  "bp": 80,
+  "sg": 1.02,
+  "al": 1,
+  "su": 0
+}
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+The backend processes this data using trained machine learning models and returns a classification result.
 
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+⚙️ Installation and Execution
+Step 1: Clone Repository
+git clone https://github.com/your-username/ckd-frontend.git
+cd ckd-frontend
+Step 2: Install Dependencies
+npm install
+Step 3: Run Development Server
 npm run dev
-```
 
-**Edit a file directly in GitHub**
+The application will be available at:
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+http://localhost:5173
+🧪 Build and Deployment
 
-**Use GitHub Codespaces**
+To generate a production build:
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+npm run build
 
-## What technologies are used for this project?
+To preview the production build:
 
-This project is built with:
+npm run preview
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+⚠️ Limitations
+The frontend relies on backend availability for predictions
+No persistent storage of user input or prediction history
+Limited interpretability of model decisions (no explainability module yet)
+🔮 Future Enhancements
+Integration of model explainability (e.g., SHAP/LIME visualizations)
+User authentication and personalized dashboards
+Storage and retrieval of historical prediction data
+Enhanced data visualization (charts and trends)
+Deployment on cloud platforms (e.g., Vercel, AWS)
 
-## How can I deploy this project?
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+📜 Declaration
 
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+This project is developed as part of academic requirements for the M.Tech program. The implementation is intended for educational and research purposes and should not be used as a substitute for professional medical diagnosis.
